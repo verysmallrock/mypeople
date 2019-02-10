@@ -1,0 +1,7 @@
+@import './cssreset';
+@import './cssvariables';
+
+body {
+    padding: 10px;
+    background-color: $app-gray25;
+}

@@ -1,0 +1,11 @@
+@import 'core/base';
+
+:local(.menu) {
+    position: fixed;
+    width: 100%;
+    bottom: 10px;
+    
+    display: flex;
+    justify-content: center;
+    border-radius: 4px;
+}
