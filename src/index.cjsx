@@ -3,6 +3,6 @@ import ReactDOM from 'react-dom';
 
 $ ->
     ReactDOM.render(
-        <Application />,
+        <Application/>,
         document.getElementById('application')
     );

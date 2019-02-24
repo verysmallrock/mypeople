@@ -21,7 +21,6 @@ module.exports = {
           _: 'lodash',
           $: 'jquery',
           AppHelper: 'core/apphelper',
-          AppState: 'model/appstate',
           React: 'react'
         })
     ],

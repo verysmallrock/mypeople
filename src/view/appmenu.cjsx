@@ -4,21 +4,22 @@ import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import PersonRounded from '@material-ui/icons/PersonRounded';
 import GroupRounded from '@material-ui/icons/GroupRounded';
-import PersonOutlined from '@material-ui/icons/PersonOutlined';
+import ScatterPlot from '@material-ui/icons/ScatterPlot';
+
+import AppState from 'model/appstate'
 
 export default class AppMenu extends React.Component
-    state:
-        value: 0
-
     handleChange: (event, value) ->
-        @setState({ value })
+        @props.appState.view.selectedView = value
+        @props.appState.reRender()
+        @forceUpdate()
 
     render: ->
-        value = @state.value
+        selectedView = @props.appState.view.selectedView
         <div className={ styles.menu } >
-            <BottomNavigation showLabels onChange={@handleChange.bind(@)} value={value} >
-                <BottomNavigationAction label='Archetypes' icon={ <PersonOutlined /> } />
+            <BottomNavigation showLabels onChange={@handleChange.bind(@)} value={selectedView} >
                 <BottomNavigationAction label='People' icon={ <PersonRounded /> } />
                 <BottomNavigationAction label='Relationships' icon={ <GroupRounded />} />
+                <BottomNavigationAction label='Graph' icon={ <ScatterPlot />} />
             </BottomNavigation>
         </div>
