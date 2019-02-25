@@ -1,9 +1,6 @@
 import BaseModel from './basemodel'
 
-export default class Person extends BaseModel
-    name: 'test'
-
+export default class RelationshipType extends BaseModel
     constructor: (name, props = {})->
         super(name)
         @name = name
-        

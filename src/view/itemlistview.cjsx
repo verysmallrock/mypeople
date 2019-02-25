@@ -1,4 +1,4 @@
-import React from 'react';
+import AppState from 'model/appstate'
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
@@ -15,8 +15,11 @@ styles = (theme) =>
   
 
 export default class ItemListView extends React.Component 
+    handleItemClick: (e, item) ->
+        @props.state.setItemEditState(item)
+
     makeListItem: (data) ->
-        <ListItem button>
+        <ListItem button key={ data.key } onClick={ (event) => @handleItemClick(event, data) }>
             <ListItemIcon>
                 <StarIcon />
             </ListItemIcon>
@@ -24,7 +27,10 @@ export default class ItemListView extends React.Component
         </ListItem>
 
     getRows: ->
-        items = @props.items
+        if Array.isArray(@props.items)
+            items = @props.items
+        else
+            items = @props.items.models
         rows = []
         for item in items
             rows.push(@makeListItem(item))

@@ -1,4 +1,3 @@
-
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -6,7 +5,8 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import AccountCircle from '@material-ui/icons/AccountCircle';
+import Settings from '@material-ui/icons/Settings';
+import Create from '@material-ui/icons/Create';
 import Switch from '@material-ui/core/Switch';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormGroup from '@material-ui/core/FormGroup';
@@ -37,6 +37,9 @@ class AppNav extends React.Component
     handleClose: ->
         @setState({ anchorEl: null })
 
+    handleCreate: ->
+        
+
     render: ->
         { classes, title } = @props;
         { auth, anchorEl } = @state;
@@ -51,10 +54,18 @@ class AppNav extends React.Component
                 <IconButton
                     aria-owns={if open then 'menu-appbar' else undefined}
                     aria-haspopup="true"
-                    onClick={@handleMenu}
+                    onClick={(e) => @handleMenu(e) }
                     color="inherit"                
                 >
-                  <AccountCircle />
+                  <Settings />
+                </IconButton>
+                <IconButton
+                    aria-owns={if open then 'menu-appbar' else undefined}
+                    aria-haspopup="true"
+                    onClick={(e) => @handleCreate(e) }
+                    color="inherit"                
+                >
+                  <Create />
                 </IconButton>
                 <Menu
                   id="menu-appbar"
@@ -62,7 +73,7 @@ class AppNav extends React.Component
                   anchorOrigin={{  vertical: 'top', horizontal: 'right'}}
                   transformOrigin={{ vertical: 'top', horizontal: 'right'}}
                   open={open}
-                  onClose={@handleClose}
+                  onClose={ => @handleClose()}
                 >
                   <MenuItem onClick={@handleClose}>Profile</MenuItem>
                   <MenuItem onClick={@handleClose}>My account</MenuItem>
