@@ -9,7 +9,7 @@ import PersonTypes from './persontypes'
 
 export default class AppState
     view:
-        selectedView: 1
+        selectedView: 0
     personTypes: null
     persons: null
     relationshipTypes: null
@@ -42,7 +42,7 @@ export default class AppState
         @personTypes.add(new PersonType())
 
         @persons = new Persons()
-        @persons.add(new Person('Luke'))
+        @persons.add(luke = new Person('Luke'))
         @persons.add(new Person('Tiffany'))
         @persons.add(new Person('Charles'))
 

@@ -6,4 +6,7 @@ export default class BaseModel
         return @key.toString()
 
     getName: ->
-        @key.toString()
+        if @name?
+            @name.toString()
+        else
+            @key.toString()
