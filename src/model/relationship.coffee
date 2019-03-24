@@ -4,3 +4,4 @@ export default class Relationship extends BaseModel
     constructor: (name, props = {})->
             super(name)
             @name = name
+            @

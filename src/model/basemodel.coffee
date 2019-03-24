@@ -10,3 +10,16 @@ export default class BaseModel
             @name.toString()
         else
             @key.toString()
+
+    save: ->
+        @serialize()
+
+    # return an object that can be stringified
+    serialize: ->
+        @
+
+    # turn an object into yourself 
+    deserialize: (data) ->
+        for prop in Object.getOwnPropertyNames(@)
+            @[prop] = data[prop]
+        @
