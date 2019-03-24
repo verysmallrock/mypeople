@@ -1,0 +1,1 @@
+scp ./dist/index.html ./dist/mypeople.js lr:www/mypeople
